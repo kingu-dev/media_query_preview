@@ -25,9 +25,8 @@ jobs:
           cache-key: "flutter-:os:-:channel:-:version:-:arch:"
           pub-cache-key: "flutter-pub-:os:-:channel:-:version:-:arch:"
 
-      ### fix and format ###
-      - name: Fix and Format
-        run: |
+      ### Check ###
+      - run: |
           dart pub get
           dart fix --apply lib
           dart analyze --fatal-infos lib
