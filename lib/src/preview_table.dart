@@ -45,36 +45,44 @@ class PreviewTable extends StatelessWidget {
             ).reduce(max),
           ),
         ),
-        rowBuilder: (index) => TableSpan(
-          extent: FixedTableSpanExtent(
-            previewDevices.map(
-              (e) {
-                if (e.length <= index) {
-                  return 0.0;
-                }
-                return e[index].size.height;
-              },
-            ).reduce(max),
-          ),
-        ),
+        rowBuilder: (index) {
+          final double extent;
+
+          if (previewDevices.length <= index) {
+            extent = 0.0;
+          } else {
+            extent = previewDevices[index]
+                .map(
+                  (e) => e.size.height,
+                )
+                .reduce(max);
+          }
+
+          return TableSpan(
+            extent: FixedTableSpanExtent(extent),
+          );
+        },
         cellBuilder: (context, vicinity) {
           final devices = previewDevices[vicinity.row];
 
+          final Widget child;
+
           if (devices.length <= vicinity.column) {
-            return const TableViewCell(
-              child: Center(
-                child: Text('No device'),
-              ),
+            child = const Center(
+              child: Text('No device'),
+            );
+          } else {
+            child = PreviewCell(
+              device: devices[vicinity.column],
+              virtualKeyboard: virtualKeyboard,
+              builder: builder,
             );
           }
 
-          final device = devices[vicinity.column];
-
           return TableViewCell(
-            child: PreviewCell(
-              device: device,
-              virtualKeyboard: virtualKeyboard,
-              builder: builder,
+            child: Padding(
+              padding: const EdgeInsets.all(8),
+              child: child,
             ),
           );
         },

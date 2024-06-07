@@ -75,7 +75,6 @@ class PreviewCell extends StatelessWidget {
       children: [
         Text(device.name),
         Text('Text Scale Factor: ${device.textScaleFactor}'),
-        const SizedBox(height: 24),
         Expanded(
           child: Padding(
             padding: const EdgeInsets.all(12),

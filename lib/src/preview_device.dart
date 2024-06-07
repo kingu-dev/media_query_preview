@@ -94,4 +94,10 @@ class PreviewDevice {
   ///
   /// If this is true, it reserves a little space at the bottom of the screen
   final bool hasHomeIndicator;
+
+  @override
+  String toString() {
+    // ignore: lines_longer_than_80_chars
+    return 'PreviewDevice{name=$name, pixelRatio=$pixelRatio, size=$size, targetPlatform=$targetPlatform, textScaleFactor=$textScaleFactor, brightness=$brightness, hasHomeIndicator=$hasHomeIndicator}';
+  }
 }
