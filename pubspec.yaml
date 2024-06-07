@@ -1,0 +1,19 @@
+name: media_query_preview
+description: "A new Flutter package project."
+version: 0.0.0
+homepage: https://github.com/KoheiKanagu/media_query_preview
+
+environment:
+  sdk: ^3.4.0
+  flutter: ^3.22.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  two_dimensional_scrollables: ^0.3.1
+
+dev_dependencies:
+  custom_lint: ^0.6.4
+  flutter_test:
+    sdk: flutter
+  very_good_analysis: ^5.1.0

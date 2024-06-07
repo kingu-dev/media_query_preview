@@ -1,0 +1,57 @@
+name: Pull Request
+
+on:
+  workflow_dispatch:
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}-pull_request
+  cancel-in-progress: true
+
+jobs:
+  check:
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    steps:
+      ### Set up ###
+      - uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2.16.0
+        with:
+          channel: stable
+          flutter-version-file: pubspec.yaml
+          cache: true
+          cache-key: "flutter-:os:-:channel:-:version:-:arch:"
+          pub-cache-key: "flutter-pub-:os:-:channel:-:version:-:arch:"
+
+      ### fix and format ###
+      - name: Fix and Format
+        run: |
+          dart pub get
+          dart fix --apply lib
+          dart analyze --fatal-infos lib
+          dart run custom_lint --fix
+          git diff --exit-code
+
+  test:
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    steps:
+      ### Set up ###
+      - uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2.16.0
+        with:
+          channel: stable
+          flutter-version-file: pubspec.yaml
+          cache: true
+          cache-key: "flutter-:os:-:channel:-:version:-:arch:"
+          pub-cache-key: "flutter-pub-:os:-:channel:-:version:-:arch:"
+
+      ### Test ###
+      - name: Test
+        run: |
+          dart pub get
+          flutter test
