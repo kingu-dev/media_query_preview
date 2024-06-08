@@ -8,13 +8,13 @@ export 'package:media_query_preview/src/preview_device.dart';
 /// A widget that displays a preview of the app on multiple devices
 class MediaQueryPreview extends StatefulWidget {
   /// Creates a widget that displays a preview of the app on multiple devices
-  const MediaQueryPreview({
+  MediaQueryPreview({
     required this.previewDevices,
     required this.builder,
     super.key,
     this.backgroundColor = const Color(0xFF042B59),
     this.virtualKeyboard = false,
-  });
+  }) : assert(previewDevices.isNotEmpty, 'previewDevices is empty');
 
   /// List of preview devices
   final List<List<PreviewDevice>> previewDevices;
@@ -48,13 +48,13 @@ class _MediaQueryPreviewState extends State<MediaQueryPreview> {
 
   @override
   Widget build(BuildContext context) {
-    assert(widget.previewDevices.isNotEmpty, 'previewDevices is empty');
-
     return Directionality(
       textDirection: TextDirection.ltr,
       child: Scaffold(
+        key: const ValueKey('MediaQueryPreview Scaffold'),
         backgroundColor: widget.backgroundColor,
         body: DefaultTextStyle(
+          key: const ValueKey('MediaQueryPreview DefaultTextStyle'),
           style: TextStyle(
             color: widget.backgroundColor.computeLuminance() > 0.5
                 ? Colors.black

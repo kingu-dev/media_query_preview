@@ -13,6 +13,7 @@ class PreviewDevice {
     required this.textScaleFactor,
     required this.brightness,
     required this.hasHomeIndicator,
+    this.key,
   });
 
   /// Creates an iPhone 6.7 inch device
@@ -20,6 +21,7 @@ class PreviewDevice {
   /// such as iPhone 15 Pro Max, iPhone 15 Plus
   /// https://developer.apple.com/help/app-store-connect/reference/screenshot-specifications/
   factory PreviewDevice.iPhone6_7inch({
+    Key? key,
     double textScaleFactor = 1,
     Brightness brightness = Brightness.light,
   }) =>
@@ -31,6 +33,7 @@ class PreviewDevice {
         textScaleFactor: textScaleFactor,
         brightness: brightness,
         hasHomeIndicator: true,
+        key: key,
       );
 
   /// Creates an iPhone 5.5 inch device
@@ -38,6 +41,7 @@ class PreviewDevice {
   /// such as iPhone 8 Plus
   /// https://developer.apple.com/help/app-store-connect/reference/screenshot-specifications/
   factory PreviewDevice.iPhone5_5inch({
+    Key? key,
     double textScaleFactor = 1,
     Brightness brightness = Brightness.light,
   }) =>
@@ -49,6 +53,7 @@ class PreviewDevice {
         textScaleFactor: textScaleFactor,
         brightness: brightness,
         hasHomeIndicator: false,
+        key: key,
       );
 
   /// Creates an Android 6.7 inch device
@@ -56,6 +61,7 @@ class PreviewDevice {
   /// such as Pixel 8 Pro
   /// https://store.google.com/product/pixel_8_pro_specs
   factory PreviewDevice.android6_7inch({
+    Key? key,
     double textScaleFactor = 1,
     Brightness brightness = Brightness.light,
   }) =>
@@ -67,7 +73,11 @@ class PreviewDevice {
         textScaleFactor: textScaleFactor,
         brightness: brightness,
         hasHomeIndicator: true,
+        key: key,
       );
+
+  /// The key of the PreviewDevice
+  final Key? key;
 
   /// The name of the device
   final String name;
@@ -97,7 +107,6 @@ class PreviewDevice {
 
   @override
   String toString() {
-    // ignore: lines_longer_than_80_chars
-    return 'PreviewDevice{name=$name, pixelRatio=$pixelRatio, size=$size, targetPlatform=$targetPlatform, textScaleFactor=$textScaleFactor, brightness=$brightness, hasHomeIndicator=$hasHomeIndicator}';
+    return 'PreviewDevice{key=$key, name=$name, pixelRatio=$pixelRatio, size=$size, targetPlatform=$targetPlatform, textScaleFactor=$textScaleFactor, brightness=$brightness, hasHomeIndicator=$hasHomeIndicator}';
   }
 }

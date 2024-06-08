@@ -36,6 +36,7 @@ class Sidebar extends StatelessWidget {
                 children: [
                   const Text('Virtual Keyboard'),
                   Switch.adaptive(
+                    key: const ValueKey('virtualKeyboard switch'),
                     value: virtualKeyboard,
                     onChanged: onVirtualKeyboardChanged,
                   ),
