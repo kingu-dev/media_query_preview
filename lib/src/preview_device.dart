@@ -107,6 +107,7 @@ class PreviewDevice {
 
   @override
   String toString() {
+    // ignore: lines_longer_than_80_chars
     return 'PreviewDevice{key=$key, name=$name, pixelRatio=$pixelRatio, size=$size, targetPlatform=$targetPlatform, textScaleFactor=$textScaleFactor, brightness=$brightness, hasHomeIndicator=$hasHomeIndicator}';
   }
 }

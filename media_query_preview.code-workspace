@@ -7,5 +7,10 @@
 			"path": "example"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"cSpell.words": [
+			"riverpod",
+			"scrollables"
+		]
+	}
 }
