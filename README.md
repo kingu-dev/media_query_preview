@@ -4,7 +4,7 @@ This package allows you to preview how your implemented UI will appear on variou
 
 It was inspired by [device_preview](https://pub.dev/packages/device_preview).
 
-![screenshot](screenshots/media_query_preview.gif)
+![Media Query Preview](https://raw.githubusercontent.com/kingu-dev/media_query_preview/main/screenshots/media_query_preview.gif)
 
 ## Features
 
@@ -104,4 +104,4 @@ runApp(
 
 If you have Apple Vision Pro, you can use it as a "Designed for iPad" app. This is the future!
 
-![screenshot](screenshots/vision_pro.webp)
+![Vision Pro](https://raw.githubusercontent.com/kingu-dev/media_query_preview/main/screenshots/vision_pro.webp)
