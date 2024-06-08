@@ -71,6 +71,7 @@ class MyHomePage extends ConsumerWidget {
               'You have pushed the button this many times:',
             ),
             Text(
+              key: const ValueKey('counter'),
               ref.watch(counterControllerProvider).toString(),
               style: Theme.of(context).textTheme.headlineMedium,
             ),
@@ -82,7 +83,7 @@ class MyHomePage extends ConsumerWidget {
             ref.read(counterControllerProvider.notifier).increment(),
         tooltip: 'Increment',
         child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 }

@@ -1,5 +1,4 @@
 import 'package:example/my_app.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:media_query_preview/media_query_preview.dart';
@@ -8,19 +7,19 @@ void main() {
   final container = ProviderContainer();
 
   // In release mode, we don't want to use the MediaQueryPreview
-  if (kReleaseMode) {
-    runApp(
-      UncontrolledProviderScope(
-        container: ProviderContainer(
-          parent: container,
-        ),
-        child: const MyApp(
-          targetPlatform: TargetPlatform.iOS,
-        ),
-      ),
-    );
-    return;
-  }
+  // if (kReleaseMode) {
+  //   runApp(
+  //     UncontrolledProviderScope(
+  //       container: ProviderContainer(
+  //         parent: container,
+  //       ),
+  //       child: const MyApp(
+  //         targetPlatform: TargetPlatform.iOS,
+  //       ),
+  //     ),
+  //   );
+  //   return;
+  // }
 
   // ignore: missing_provider_scope
   runApp(
