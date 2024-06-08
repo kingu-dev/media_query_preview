@@ -15,6 +15,12 @@ jobs:
       ### Set up ###
       - uses: actions/checkout@v4
 
+      # This action adds a token needed for pub.dev
+      - name: Setup Dart SDK
+        uses: dart-lang/setup-dart@v1.6.4
+        with:
+          sdk: "stable"
+
       - name: Setup Flutter
         uses: subosito/flutter-action@v2.16.0
         with:
@@ -28,4 +34,5 @@ jobs:
       - name: Publish
         run: |
           dart pub get
+          dart pub publish --dry-run
           dart pub publish --force
