@@ -73,7 +73,7 @@ class PreviewTable extends StatelessWidget {
             );
           } else {
             child = PreviewCell(
-              device: devices[vicinity.column],
+              previewDevice: devices[vicinity.column],
               virtualKeyboard: virtualKeyboard,
               builder: builder,
             );

@@ -5,7 +5,7 @@ import 'package:media_query_preview/src/preview_device.dart';
 class PreviewCell extends StatelessWidget {
   /// Creates a cell that displays a preview of the app on a device
   const PreviewCell({
-    required this.device,
+    required this.previewDevice,
     required this.virtualKeyboard,
     required this.builder,
     super.key,
@@ -27,7 +27,7 @@ class PreviewCell extends StatelessWidget {
   ) builder;
 
   /// The device to preview
-  final PreviewDevice device;
+  final PreviewDevice previewDevice;
 
   /// If true, the virtual keyboard is shown
   final bool virtualKeyboard;
@@ -38,7 +38,7 @@ class PreviewCell extends StatelessWidget {
       top: statusBarHeight,
     );
 
-    if (!virtualKeyboard && device.hasHomeIndicator) {
+    if (!virtualKeyboard && previewDevice.hasHomeIndicator) {
       insets += const EdgeInsets.only(
         bottom: homeIndicatorHeight,
       );
@@ -60,7 +60,7 @@ class PreviewCell extends StatelessWidget {
       top: statusBarHeight,
     );
 
-    if (device.hasHomeIndicator) {
+    if (previewDevice.hasHomeIndicator) {
       insets += const EdgeInsets.only(
         bottom: homeIndicatorHeight,
       );
@@ -73,8 +73,8 @@ class PreviewCell extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(device.name),
-        Text('Text Scale Factor: ${device.textScaleFactor}'),
+        Text(previewDevice.name),
+        Text('Text Scale Factor: ${previewDevice.textScaleFactor}'),
         Expanded(
           child: Padding(
             padding: const EdgeInsets.all(12),
@@ -83,16 +83,16 @@ class PreviewCell extends StatelessWidget {
               fit: BoxFit.scaleDown,
               child: LayoutBuilder(
                 builder: (_, constraints) => SizedBox.fromSize(
-                  size: device.size,
+                  size: previewDevice.size,
                   child: Column(
                     children: [
                       Expanded(
                         child: MediaQuery(
                           data: MediaQueryData(
-                            platformBrightness: device.brightness,
-                            size: device.size,
+                            platformBrightness: previewDevice.brightness,
+                            size: previewDevice.size,
                             textScaler: TextScaler.linear(
-                              device.textScaleFactor,
+                              previewDevice.textScaleFactor,
                             ),
                             padding: padding,
                             viewInsets: viewInsets,
@@ -100,10 +100,11 @@ class PreviewCell extends StatelessWidget {
                           ),
                           child: Stack(
                             children: [
-                              builder(context, device),
+                              builder(context, previewDevice),
                               Visibility(
                                 visible: virtualKeyboard,
-                                child: Align(
+                                child: Container(
+                                  key: const ValueKey('virtualKeyboard'),
                                   alignment: Alignment.bottomCenter,
                                   child: Container(
                                     color: Colors.grey,
