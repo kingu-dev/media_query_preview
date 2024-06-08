@@ -21,47 +21,49 @@ void main() {
   //   return;
   // }
 
+  final previewDevices = [
+    [
+      PreviewDevice.iPhone5_5inch(
+        textScaleFactor: 0.5,
+      ),
+      PreviewDevice.iPhone5_5inch(),
+      PreviewDevice.iPhone5_5inch(
+        brightness: Brightness.dark,
+      ),
+      PreviewDevice.iPhone5_5inch(
+        textScaleFactor: 1.5,
+      ),
+    ],
+    [
+      PreviewDevice.iPhone6_7inch(
+        textScaleFactor: 0.5,
+      ),
+      PreviewDevice.iPhone6_7inch(),
+      PreviewDevice.iPhone6_7inch(
+        brightness: Brightness.dark,
+      ),
+      PreviewDevice.iPhone6_7inch(
+        textScaleFactor: 1.5,
+      ),
+    ],
+    [
+      PreviewDevice.android6_7inch(
+        textScaleFactor: 0.5,
+      ),
+      PreviewDevice.android6_7inch(),
+      PreviewDevice.android6_7inch(
+        brightness: Brightness.dark,
+      ),
+      PreviewDevice.android6_7inch(
+        textScaleFactor: 1.5,
+      ),
+    ]
+  ];
+
   // ignore: missing_provider_scope
   runApp(
     MediaQueryPreview(
-      previewDevices: [
-        [
-          PreviewDevice.iPhone5_5inch(
-            textScaleFactor: 0.5,
-          ),
-          PreviewDevice.iPhone5_5inch(),
-          PreviewDevice.iPhone5_5inch(
-            brightness: Brightness.dark,
-          ),
-          PreviewDevice.iPhone5_5inch(
-            textScaleFactor: 1.5,
-          ),
-        ],
-        [
-          PreviewDevice.iPhone6_7inch(
-            textScaleFactor: 0.5,
-          ),
-          PreviewDevice.iPhone6_7inch(),
-          PreviewDevice.iPhone6_7inch(
-            brightness: Brightness.dark,
-          ),
-          PreviewDevice.iPhone6_7inch(
-            textScaleFactor: 1.5,
-          ),
-        ],
-        [
-          PreviewDevice.android6_7inch(
-            textScaleFactor: 0.5,
-          ),
-          PreviewDevice.android6_7inch(),
-          PreviewDevice.android6_7inch(
-            brightness: Brightness.dark,
-          ),
-          PreviewDevice.android6_7inch(
-            textScaleFactor: 1.5,
-          ),
-        ]
-      ],
+      previewDevices: previewDevices,
       builder: (_, previewDevice) => UncontrolledProviderScope(
         container: ProviderContainer(
           parent: container,
@@ -72,4 +74,14 @@ void main() {
       ),
     ),
   );
+
+  // If you don't use riverpod, do like this
+  // runApp(
+  //   MediaQueryPreview(
+  //     previewDevices: previewDevices,
+  //     builder: (_, previewDevice) => MyApp(
+  //       targetPlatform: previewDevice.targetPlatform,
+  //     ),
+  //   ),
+  // );
 }
