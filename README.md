@@ -1,3 +1,6 @@
+[![pub package](https://img.shields.io/pub/v/media_query_preview.svg)](https://pub.dartlang.org/packages/media_query_preview)
+[![GitHub deployments](https://img.shields.io/github/deployments/kingu-dev/media_query_preview/demo?label=Deploy%20Demo)](https://kingu-dev.github.io/media_query_preview/)
+
 Have you ever experienced your UI breaking when the font size is too large or the screen size of the device is small? Checking for these issues can be a hassle.
 
 This package allows you to preview how your implemented UI will appear on various devices with different screen sizes, text scales, and brightness.
