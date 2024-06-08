@@ -28,7 +28,7 @@ jobs:
       ### Check ###
       - run: |
           dart pub get
-          dart run build_runner build --delete-conflicting-outputs
+          (cd example && dart run build_runner build --delete-conflicting-outputs)
           dart fix --apply lib
           dart analyze --fatal-infos lib
           dart run custom_lint --fix
