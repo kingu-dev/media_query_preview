@@ -28,5 +28,4 @@ jobs:
       - name: Publish
         run: |
           dart pub get
-          dart pub publish --dry-run
-          # dart pub publish --force
+          dart pub publish --force
