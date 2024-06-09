@@ -51,12 +51,8 @@ void main() {
           ]
         ],
         builder: (_, previewDevice) => UncontrolledProviderScope(
-          container: ProviderContainer(
-            parent: container,
-          ),
-          child: MyApp(
-            targetPlatform: previewDevice.targetPlatform,
-          ),
+          container: container,
+          child: const MyApp(),
         ),
       );
 
