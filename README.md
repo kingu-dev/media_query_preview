@@ -103,7 +103,8 @@ runApp(
 ## Attention
 
 - It is recommended to use this package only development. Please do not use it in production.
-- This package allows you to display multiple instances of the Widget you implemented at the same time, which may lead to poor performance or issues with state management. In particular, it may not work properly if you are using global objects or `GlobalKey`.
+- This package allows you to display multiple instances of the Widget you implemented at the same time, which may lead to poor performance or issues with state management.
+- If you manage `GlobalKey` with global variables, they will be shared across each preview, which can lead to errors or unintended behavior. Since the widget trees of each preview are independent, it is recommended to generate a separate `GlobalKey` for each tree.
 
 ## Future
 
