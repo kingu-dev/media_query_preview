@@ -35,33 +35,22 @@ class PreviewTable extends StatelessWidget {
         rowCount: previewDevices.length,
         columnBuilder: (index) => TableSpan(
           extent: FixedTableSpanExtent(
-            previewDevices.map(
-              (e) {
-                if (e.length <= index) {
-                  return 0.0;
-                }
-                return e[index].size.width;
-              },
-            ).reduce(max),
+            previewDevices
+                .map(
+                  (e) => e[index].size.width,
+                )
+                .reduce(max),
           ),
         ),
-        rowBuilder: (index) {
-          final double extent;
-
-          if (previewDevices.length <= index) {
-            extent = 0.0;
-          } else {
-            extent = previewDevices[index]
+        rowBuilder: (index) => TableSpan(
+          extent: FixedTableSpanExtent(
+            previewDevices[index]
                 .map(
                   (e) => e.size.height,
                 )
-                .reduce(max);
-          }
-
-          return TableSpan(
-            extent: FixedTableSpanExtent(extent),
-          );
-        },
+                .reduce(max),
+          ),
+        ),
         cellBuilder: (context, vicinity) {
           final devices = previewDevices[vicinity.row];
 

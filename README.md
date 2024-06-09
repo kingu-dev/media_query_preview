@@ -73,14 +73,14 @@ final previewDevices = [
 runApp(
   MediaQueryPreview(
     previewDevices: previewDevices,
-    builder: (_, previewDevice) => UncontrolledProviderScope(
-      container: ProviderContainer(
-        parent: container,
-      ),
-      child: MyApp(
-        targetPlatform: previewDevice.targetPlatform,
-      ),
-    ),
+    builder: (_, previewDevice) {
+      // If you want to change the theme based on the targetPlatform,
+      // you can get the targetPlatform from [previewDevice.targetPlatform].
+      return UncontrolledProviderScope(
+        container: container,
+        child: const MyApp(),
+      );
+    },
   ),
 );
 ```
@@ -91,9 +91,11 @@ If you are not using [riverpod](https://pub.dev/packages/riverpod), it is even s
 runApp(
   MediaQueryPreview(
     previewDevices: previewDevices,
-    builder: (_, previewDevice) => MyApp(
-      targetPlatform: previewDevice.targetPlatform,
-    ),
+    builder: (_, previewDevice) {
+      // If you want to change the theme based on the targetPlatform,
+      // you can get the targetPlatform from [previewDevice.targetPlatform].
+      return const MyApp();
+    },
   ),
 );
 ```
