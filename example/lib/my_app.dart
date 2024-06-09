@@ -20,11 +20,8 @@ class CounterController extends _$CounterController {
 
 class MyApp extends StatelessWidget {
   const MyApp({
-    required this.targetPlatform,
     super.key,
   });
-
-  final TargetPlatform targetPlatform;
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +40,9 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(
+        title: 'Flutter Demo Home Page',
+      ),
     );
   }
 }

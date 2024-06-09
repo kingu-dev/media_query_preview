@@ -33,30 +33,25 @@ class PreviewTable extends StatelessWidget {
       child: TableView.builder(
         columnCount: previewDevices.map((e) => e.length).reduce(max),
         rowCount: previewDevices.length,
-        columnBuilder: (index) => TableSpan(
-          extent: FixedTableSpanExtent(
-            previewDevices.map(
-              (e) {
-                if (e.length <= index) {
-                  return 0.0;
-                }
-                return e[index].size.width;
-              },
-            ).reduce(max),
-          ),
-        ),
-        rowBuilder: (index) {
-          final double extent;
+        columnBuilder: (index) {
+          final extent = previewDevices
+              .map(
+                (e) => e.length > index ? e[index].size.width : 0.0,
+              )
+              .reduce(max);
 
-          if (previewDevices.length <= index) {
-            extent = 0.0;
-          } else {
-            extent = previewDevices[index]
-                .map(
-                  (e) => e.size.height,
-                )
-                .reduce(max);
-          }
+          return TableSpan(
+            extent: FixedTableSpanExtent(extent),
+          );
+        },
+        rowBuilder: (index) {
+          final extent = previewDevices.length > index
+              ? previewDevices[index]
+                  .map(
+                    (e) => e.size.height,
+                  )
+                  .reduce(max)
+              : 0.0;
 
           return TableSpan(
             extent: FixedTableSpanExtent(extent),

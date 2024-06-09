@@ -10,9 +10,7 @@ void main() {
   // if (kReleaseMode) {
   //   runApp(
   //     UncontrolledProviderScope(
-  //       container: ProviderContainer(
-  //         parent: container,
-  //       ),
+  //       container: container,
   //       child: const MyApp(
   //         targetPlatform: TargetPlatform.iOS,
   //       ),
@@ -64,24 +62,26 @@ void main() {
   runApp(
     MediaQueryPreview(
       previewDevices: previewDevices,
-      builder: (_, previewDevice) => UncontrolledProviderScope(
-        container: ProviderContainer(
-          parent: container,
-        ),
-        child: MyApp(
-          targetPlatform: previewDevice.targetPlatform,
-        ),
-      ),
+      builder: (_, previewDevice) {
+        // If you want to change the theme based on the targetPlatform,
+        // you can get the targetPlatform from [previewDevice.targetPlatform].
+        return UncontrolledProviderScope(
+          container: container,
+          child: const MyApp(),
+        );
+      },
     ),
   );
 
-  // If you don't use riverpod, do like this
+  // If you are not using riverpod, it is even simpler.
   // runApp(
   //   MediaQueryPreview(
   //     previewDevices: previewDevices,
-  //     builder: (_, previewDevice) => MyApp(
-  //       targetPlatform: previewDevice.targetPlatform,
-  //     ),
+  //     builder: (_, previewDevice) {
+  //       // If you want to change the theme based on the targetPlatform,
+  //       // you can get the targetPlatform from [previewDevice.targetPlatform].
+  //       return const MyApp();
+  //     },
   //   ),
   // );
 }
