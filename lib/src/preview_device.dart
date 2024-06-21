@@ -23,11 +23,15 @@ class PreviewDevice {
     Key? key,
     double textScaleFactor = 1,
     Brightness brightness = Brightness.light,
+    Orientation orientation = Orientation.portrait,
   }) =>
       PreviewDevice(
         name: 'iPhone 6.7 inch',
         pixelRatio: 3,
-        size: const Size(1290, 2796) / 3,
+        size: switch (orientation) {
+          Orientation.portrait => const Size(1290, 2796) / 3,
+          Orientation.landscape => const Size(2796, 1290) / 3,
+        },
         targetPlatform: TargetPlatform.iOS,
         textScaleFactor: textScaleFactor,
         brightness: brightness,
@@ -43,11 +47,15 @@ class PreviewDevice {
     Key? key,
     double textScaleFactor = 1,
     Brightness brightness = Brightness.light,
+    Orientation orientation = Orientation.portrait,
   }) =>
       PreviewDevice(
         name: 'iPhone 5.5 inch',
         pixelRatio: 3,
-        size: const Size(1242, 2208) / 3,
+        size: switch (orientation) {
+          Orientation.portrait => const Size(1242, 2208) / 3,
+          Orientation.landscape => const Size(2208, 1242) / 3,
+        },
         targetPlatform: TargetPlatform.iOS,
         textScaleFactor: textScaleFactor,
         brightness: brightness,
@@ -63,11 +71,15 @@ class PreviewDevice {
     Key? key,
     double textScaleFactor = 1,
     Brightness brightness = Brightness.light,
+    Orientation orientation = Orientation.portrait,
   }) =>
       PreviewDevice(
         name: 'Android 6.7 inch',
         pixelRatio: 3,
-        size: const Size(1344, 2992) / 3,
+        size: switch (orientation) {
+          Orientation.portrait => const Size(1344, 2992) / 3,
+          Orientation.landscape => const Size(2992, 1344) / 3,
+        },
         targetPlatform: TargetPlatform.android,
         textScaleFactor: textScaleFactor,
         brightness: brightness,

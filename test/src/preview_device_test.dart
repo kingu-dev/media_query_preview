@@ -18,6 +18,16 @@ void main() {
     expect(actual.hasHomeIndicator, true);
   });
 
+  test('iPhone6_7inch factory constructor sets landscape orientation correctly',
+      () {
+    final actual = PreviewDevice.iPhone6_7inch(
+      orientation: Orientation.landscape,
+    );
+
+    expect(actual.size.width, closeTo(932, 0.1));
+    expect(actual.size.height, closeTo(430, 0.1));
+  });
+
   test('iPhone5_5inch factory constructor sets default values correctly', () {
     final actual = PreviewDevice.iPhone5_5inch();
 
@@ -31,6 +41,16 @@ void main() {
     expect(actual.hasHomeIndicator, false);
   });
 
+  test('iPhone5_5inch factory constructor sets landscape orientation correctly',
+      () {
+    final actual = PreviewDevice.iPhone5_5inch(
+      orientation: Orientation.landscape,
+    );
+
+    expect(actual.size.width, closeTo(736, 0.1));
+    expect(actual.size.height, closeTo(414, 0.1));
+  });
+
   test('android6_7inch factory constructor sets default values correctly', () {
     final actual = PreviewDevice.android6_7inch();
 
@@ -42,6 +62,17 @@ void main() {
     expect(actual.textScaleFactor, 1);
     expect(actual.brightness, Brightness.light);
     expect(actual.hasHomeIndicator, true);
+  });
+
+  test(
+      'android6_7inch factory constructor sets landscape orientation correctly',
+      () {
+    final actual = PreviewDevice.android6_7inch(
+      orientation: Orientation.landscape,
+    );
+
+    expect(actual.size.width, closeTo(997.3, 0.1));
+    expect(actual.size.height, closeTo(448, 0.1));
   });
 
   test('copyWith should correctly modify fields', () {

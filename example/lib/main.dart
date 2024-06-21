@@ -31,6 +31,9 @@ void main() {
       PreviewDevice.iPhone5_5inch(
         textScaleFactor: 1.5,
       ),
+      PreviewDevice.iPhone5_5inch(
+        orientation: Orientation.landscape,
+      ),
     ],
     [
       PreviewDevice.iPhone6_7inch(
@@ -43,6 +46,9 @@ void main() {
       PreviewDevice.iPhone6_7inch(
         textScaleFactor: 1.5,
       ),
+      PreviewDevice.iPhone6_7inch(
+        orientation: Orientation.landscape,
+      ),
     ],
     [
       PreviewDevice.android6_7inch(
@@ -54,6 +60,9 @@ void main() {
       ),
       PreviewDevice.android6_7inch(
         textScaleFactor: 1.5,
+      ),
+      PreviewDevice.android6_7inch(
+        orientation: Orientation.landscape,
       ),
     ]
   ];
