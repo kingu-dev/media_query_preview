@@ -1,6 +1,5 @@
-import 'dart:ui';
-
 import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
 
 /// A device that can be used to preview the app
 class PreviewDevice {
@@ -109,5 +108,29 @@ class PreviewDevice {
   String toString() {
     // ignore: lines_longer_than_80_chars
     return 'PreviewDevice{key=$key, name=$name, pixelRatio=$pixelRatio, size=$size, targetPlatform=$targetPlatform, textScaleFactor=$textScaleFactor, brightness=$brightness, hasHomeIndicator=$hasHomeIndicator}';
+  }
+
+  /// Creates a copy of this [PreviewDevice] but with the given fields replaced
+  /// with the new values.
+  PreviewDevice copyWith({
+    ValueGetter<Key?>? key,
+    String? name,
+    double? pixelRatio,
+    Size? size,
+    TargetPlatform? targetPlatform,
+    double? textScaleFactor,
+    Brightness? brightness,
+    bool? hasHomeIndicator,
+  }) {
+    return PreviewDevice(
+      key: key != null ? key() : this.key,
+      name: name ?? this.name,
+      pixelRatio: pixelRatio ?? this.pixelRatio,
+      size: size ?? this.size,
+      targetPlatform: targetPlatform ?? this.targetPlatform,
+      textScaleFactor: textScaleFactor ?? this.textScaleFactor,
+      brightness: brightness ?? this.brightness,
+      hasHomeIndicator: hasHomeIndicator ?? this.hasHomeIndicator,
+    );
   }
 }
