@@ -1,6 +1,6 @@
 name: media_query_preview
 description: "This package enables UI preview across various devices and conditions, supporting custom devices, brightness, and text scales. Ideal for development, not production."
-version: 0.0.2
+version: 0.1.0
 homepage: https://github.com/kingu-dev/media_query_preview
 
 environment:
