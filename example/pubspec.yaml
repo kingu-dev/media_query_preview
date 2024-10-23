@@ -21,7 +21,7 @@ dev_dependencies:
   custom_lint: ^0.6.4
   flutter_test:
     sdk: flutter
-  riverpod_generator: ^2.4.0
+  riverpod_generator: ^2.6.1
   riverpod_lint: ^2.3.10
   very_good_analysis: ^5.1.0
 
