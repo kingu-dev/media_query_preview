@@ -13,7 +13,7 @@ jobs:
       id-token: write
     steps:
       ### Set up ###
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       # This action adds a token needed for pub.dev
       - name: Setup Dart SDK
