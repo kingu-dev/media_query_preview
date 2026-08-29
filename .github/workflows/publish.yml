@@ -17,7 +17,7 @@ jobs:
 
       # This action adds a token needed for pub.dev
       - name: Setup Dart SDK
-        uses: dart-lang/setup-dart@v1.6.4
+        uses: dart-lang/setup-dart@v1.8.1
         with:
           sdk: "stable"
 
