@@ -11,7 +11,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_riverpod: ^2.5.1
+  flutter_riverpod: ^2.6.1
   media_query_preview:
     path: ../
   riverpod_annotation: ^2.3.5
